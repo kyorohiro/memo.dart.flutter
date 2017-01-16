@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 
 void main() {
+  GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey<ScaffoldState>();
   Matrix4 mat = new Matrix4.rotationZ(30.0);
   var b = new Block(children:<Widget>[
     new DrawerHeader(child: new Text("--A")),
     new DrawerItem(child:new Text("--1")),
     new DrawerItem(child:new Text("--2")),
-    new DrawerItem(child:new Text("--3")),
+    new DrawerItem(child:new Text("--3"),onPressed: (){Navigator.pop(null);}),
     new DrawerItem(child:new Text("--4")),
     new DrawerItem(child:new Text("--5")),
   ]);
+  var d = new Drawer(child:b);
   var s = new Scaffold(
-    drawer:  new Drawer(child:b),
+    key: scaffoldKey,
+    drawer:  d,
     appBar: new AppBar(
       title: new Text("title"),
       actions: [new Text("xxx1"),new Text("xxx3")],
@@ -22,11 +25,12 @@ void main() {
       ),
     ),
     floatingActionButton: new FloatingActionButton(
-      onPressed: () {},
+      onPressed: () {scaffoldKey.currentState.openDrawer();},
       tooltip: 'Increment',
       child: new Icon(Icons.add),
     ),
   );
+
   var m = new MaterialApp(
     title: 'Flutter Demo',
     theme: new ThemeData(

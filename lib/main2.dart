@@ -37,6 +37,11 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      drawer: new Drawer(child: new Block(children: [
+        new DrawerItem(child: new Text("--1"),onPressed: (){Navigator.pop(context);}),
+        new DrawerItem(child: new Text("--2")),
+        new DrawerItem(child: new Text("--3")),
+        ])),
       appBar: new AppBar(
         title: new Text(config.title),
       ),

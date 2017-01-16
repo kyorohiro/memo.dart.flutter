@@ -1,0 +1,95 @@
+Flutter crash report; please file at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter run --machine --device-id=00c887e085c82514 lib/main2.dart
+
+## exception
+
+FileSystemException: writeFrom failed, path = '' (OS Error: Broken pipe, errno = 32)
+
+```
+dart:io                                                           _StdSink.writeln
+package:flutter_tools/executable.dart 144                         main.<async>.<fn>.<fn>
+===== asynchronous gap ===========================
+dart:io                                                           _StdSink.writeln
+package:flutter_tools/executable.dart 144                         main.<async>.<fn>.<fn>
+===== asynchronous gap ===========================
+dart:io                                                           _StdSink.writeln
+package:flutter_tools/executable.dart 144                         main.<async>.<fn>.<fn>
+===== asynchronous gap ===========================
+dart:io                                                           _StdSink.writeln
+package:flutter_tools/src/commands/daemon.dart 585                stdoutCommandResponse
+package:flutter_tools/src/commands/daemon.dart 140                Daemon._send
+package:flutter_tools/src/commands/daemon.dart 188                Domain._send
+package:flutter_tools/src/commands/daemon.dart 185                Domain.sendEvent
+package:flutter_tools/src/commands/daemon.dart 452                AppDomain._sendAppEvent
+package:flutter_tools/src/commands/daemon.dart 350                AppDomain.startApp
+package:flutter_tools/src/commands/run.dart 174                   RunCommand.runCommand.<async>
+===== asynchronous gap ===========================
+dart:async                                                        Future.Future.microtask
+package:flutter_tools/src/commands/run.dart                       RunCommand.runCommand
+package:flutter_tools/src/runner/flutter_command.dart 148         FlutterCommand.verifyThenRunCommand.<async>
+dart:async                                                        _SyncCompleter.complete
+package:flutter_tools/src/dart/pub.dart 66                        pubGet.<async>
+===== asynchronous gap ===========================
+dart:async                                                        _asyncThenWrapperHelper
+package:flutter_tools/src/runner/flutter_command.dart             FlutterCommand.verifyThenRunCommand
+package:flutter_tools/src/commands/run.dart 159                   RunCommand.verifyThenRunCommand.<async>
+dart:async                                                        _SyncCompleter.complete
+package:flutter_tools/src/runner/flutter_command.dart 197         FlutterCommand.findTargetDevice.<async>
+dart:async                                                        _SyncCompleter.complete
+package:flutter_tools/src/device.dart 52                          DeviceManager.getDevicesById.<async>
+dart:async                                                        _SyncCompleter.complete
+package:flutter_tools/src/device.dart 72                          DeviceManager.getAllConnectedDevices.<async>
+===== asynchronous gap ===========================
+dart:async                                                        _asyncThenWrapperHelper
+package:flutter_tools/src/commands/run.dart                       RunCommand.verifyThenRunCommand
+package:flutter_tools/src/runner/flutter_command.dart 119         FlutterCommand.run
+package:args/command_runner.dart 194                              CommandRunner.runCommand.<async>
+===== asynchronous gap ===========================
+dart:async                                                        Future.Future.microtask
+package:args/command_runner.dart                                  CommandRunner.runCommand
+package:flutter_tools/src/runner/flutter_command_runner.dart 184  FlutterCommandRunner.runCommand.<async>
+dart:async                                                        _SyncCompleter.complete
+package:flutter_tools/src/cache.dart 72                           Cache.lock.<async>
+===== asynchronous gap ===========================
+dart:async                                                        _asyncThenWrapperHelper
+package:flutter_tools/src/runner/flutter_command_runner.dart      FlutterCommandRunner.runCommand
+package:args/command_runner.dart 109                              CommandRunner.run.<fn>
+dart:async                                                        Future.Future.sync
+package:args/command_runner.dart 109                              CommandRunner.run
+package:flutter_tools/src/runner/flutter_command_runner.dart 134  FlutterCommandRunner.run
+package:flutter_tools/executable.dart 118                         main.<async>.<fn>.<fn>.<async>
+===== asynchronous gap ===========================
+package:stack_trace                                               Chain.capture
+package:flutter_tools/executable.dart 117                         main.<async>.<fn>
+package:flutter_tools/src/base/context.dart 75                    AppContext._run.<async>
+```
+
+## flutter doctor
+
+```
+[✓] Flutter (on Mac OS, channel alpha)
+    • Flutter at /Users/kyorohiro/tools/git/flutter
+    • Framework revision e05dcc9c71 (7 weeks ago), 2016-11-30 08:47:22
+    • Engine revision a8b7631b7a
+    • Tools Dart version 1.21.0-dev.10.0
+
+[✓] Android toolchain - develop for Android devices (Android SDK 25.0.1)
+    • Android SDK at /usr/local/Cellar/android-sdk/24.4.1_1
+    • Platform android-25, build-tools 25.0.1
+    • ANDROID_HOME = /usr/local/Cellar/android-sdk/24.4.1_1
+    • Java(TM) SE Runtime Environment (build 1.8.0_112-b16)
+
+[✓] iOS toolchain - develop for iOS devices (Xcode 8.2.1)
+    • XCode at /Applications/Xcode.app/Contents/Developer
+    • Xcode 8.2.1, Build version 8C1002
+
+[✓] IntelliJ IDEA Community Edition (version 2016.3.2)
+    • Dart plugin installed
+    • Flutter plugin installed
+
+[✓] Connected devices
+    • Nexus 5X • 00c887e085c82514 • android-arm • Android 6.0.1 (API 23)
+```

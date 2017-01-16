@@ -6,7 +6,7 @@ void main() {
     new DrawerHeader(child: new Text("--A")),
     new DrawerItem(child:new Text("--1")),
     new DrawerItem(child:new Text("--2")),
-    new DrawerItem(child:new Text("--3")),
+    new DrawerItem(child:new Text("--3"),onPressed: (){}),
     new DrawerItem(child:new Text("--4")),
     new DrawerItem(child:new Text("--5")),
   ]);

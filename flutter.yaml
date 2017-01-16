@@ -1,0 +1,4 @@
+name: memo_flutter
+uses-material-design: true
+assets:
+  - assets/icon.jpeg

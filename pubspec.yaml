@@ -1,0 +1,5 @@
+name: memo_flutter
+description: A new flutter project.
+dependencies:
+  flutter:
+    sdk: flutter
